@@ -18,7 +18,7 @@ pipeline {
                     echo "${commits}"
                     // 将获取到的提交版本存储起来
                     def commitList = commits.split('\n')
-                    echo "第一条提交:${commitList[0]}"
+                    echo "第一条提交:${commitList[1]}" //第0条是cmd命令
                 }
             }
         }
