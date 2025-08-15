@@ -28,7 +28,7 @@ pipeline {
                     // 获取所有分支，并存储到文件
                     bat """
                     cd ${repoDir}
-                    git branch -r | grep -v '->' | sed 's/origin\\///' > branches.txt
+                    git branch -r | findstr /v '->' | sed 's/origin\\///' > branches.txt
                     """
 
                     // 读取文件中的分支，并存储为一个列表
