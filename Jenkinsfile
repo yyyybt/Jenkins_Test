@@ -10,12 +10,14 @@ pipeline {
 
         stage('Query Git Commits'){
         	steps{
-        		echo '查询所有git提交的版本'
-        		def commits = bat(
+        		script{
+        			def commits = bat(
         			script: 'git log --pretty=format:"%H - %an, %ad : %s"', returnStdout: true
-        		).trim()
-        		echo "所有提交记录如下"
-        		echo "${commits}"
+        			).trim()
+        			echo "所有提交记录如下"
+        			echo "${commits}"
+        		}
+        		echo '查询所有git提交的版本'
         	}
         }
 
